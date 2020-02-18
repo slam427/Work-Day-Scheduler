@@ -20,6 +20,8 @@ $(document).ready(function () {
         eventInput.addClass("form-control");
         
         var saveCol = $("<div>");
+            var saveButton = $("<button>");
+            saveCol.append(saveButton);
         saveCol.addClass("col-2", "input-group-append");
         saveCol.text("Save");
         
@@ -28,6 +30,7 @@ $(document).ready(function () {
         
         $("#timeBlocks").append(newRow);
         
+
         //past = negative \ future = positive
         // if(moment().diff(rowTime, ) > 0) {
         // rowTime.addClass("bg-success text-white");
