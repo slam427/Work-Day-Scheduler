@@ -2,43 +2,58 @@ $(document).ready(function () {
     var hoursArray = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"]
 
     for (var i = 0; i < hoursArray.length; i++) {
-        console.log(i);
 
+        var rowTime = moment(hoursArray[i],"HH:mmA");
+    
+        // console.log(moment(rowTime,"HH:mmA"));
         var newRow = $("<div>");
         newRow.addClass("row", "input-group-prepend");
-
+        
         var hourCol = $("<div>");
         hourCol.addClass("col-2", "text-align-center");
         hourCol.text(hoursArray[i]);
-
+        
         var eventCol = $("<div>");
         eventCol.addClass("col-8");
-
+        
         var eventInput = $("<textarea>");
         eventInput.addClass("form-control");
-
+        
         var saveCol = $("<div>");
         saveCol.addClass("col-2", "input-group-append");
         saveCol.text("Save");
-
+        
         newRow.append(hourCol, eventCol, saveCol);
         eventCol.append(eventInput);
-
+        
         $("#timeBlocks").append(newRow);
+        
+        //past = negative \ future = positive
+        // if(moment().diff(rowTime, ) > 0) {
+        // rowTime.addClass("bg-success text-white");
+        // console.log("time check",moment().diff(rowTime));
+        // } else if(moment().diff(rowTime, ) < 0){
+        // rowTime.addClass("bg-danger text-white");
+        // }
     }
+    
+    var currentTime = $("<time>");
+    currentTime.text(moment().format("dddd, MMMM Do YYYY  h:mmA"));
+    $("#currentDay").append(currentTime);
 
-    var timeSection = $("<time>");
-    timeSection.text(moment());
-    $("#currentDay").append(timeSection);
 
-
-    // hourCol.addClass("col-2")
+// moment('2010-10-20').isBefore('2010-10-21')
+// moment().isBefore(Moment|String|Number|Date|Array);
+// moment().isBefore(Moment|String|Number|Date|Array, String);
+    
+// hourCol.addClass("col-2")
     // saveCol.addClass("col-2");
     // eventCol.addClass("col-8");
 
     // newRow.addClass("input-group");
 
-
+    // moment('01/01/2016', 'MM/DD/YYYY')
+    // moment('2016-01-01 11:31:23 PM', 'YYYY-MM-DD hh:mm:ss a')
 
 
 
