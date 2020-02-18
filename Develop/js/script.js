@@ -1,26 +1,42 @@
-$(document).ready(function() {
-var hoursArray = ["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"]
+$(document).ready(function () {
+    var hoursArray = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"]
 
-for (var i = 0; i < hoursArray.length; i++) {
-    console.log(i);
-var newRow = $("<div>");
-var hourCol = $("<div>");
-    hourCol.text(hoursArray[i]);
+    for (var i = 0; i < hoursArray.length; i++) {
+        console.log(i);
 
-var eventCol = $("<div>");
-var saveCol = $("<div>");
+        var newRow = $("<div>");
+        newRow.addClass("row", "input-group-prepend");
 
-newRow.append(hourCol, eventCol, saveCol);
-$("#timeBlocks").append(newRow);
-}
+        var hourCol = $("<div>");
+        hourCol.addClass("col-2", "text-align-center");
+        hourCol.text(hoursArray[i]);
+
+        var eventCol = $("<div>");
+        eventCol.addClass("col-8");
+
+        var eventInput = $("<textarea>");
+        eventInput.addClass("form-control");
+
+        var saveCol = $("<div>");
+        saveCol.addClass("col-2", "input-group-append");
+        saveCol.text("Save");
+
+        newRow.append(hourCol, eventCol, saveCol);
+        eventCol.append(eventInput);
+
+        $("#timeBlocks").append(newRow);
+    }
+
+    var timeSection = $("<time>");
+    timeSection.text(moment());
+    $("#currentDay").append(timeSection);
 
 
+    // hourCol.addClass("col-2")
+    // saveCol.addClass("col-2");
+    // eventCol.addClass("col-8");
 
-// hourCol.addClass("col-2")
-// saveCol.addClass("col-2");
-// eventCol.addClass("col-8");
-
-// newRow.addClass("input-group");
+    // newRow.addClass("input-group");
 
 
 
