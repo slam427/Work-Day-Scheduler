@@ -44,11 +44,6 @@ $(document).ready(function () {
     currentTime.text(moment().format("dddd, MMMM Do YYYY  h:mmA"));
     $("#currentDay").append(currentTime);
 
-
-// moment('2010-10-20').isBefore('2010-10-21')
-// moment().isBefore(Moment|String|Number|Date|Array);
-// moment().isBefore(Moment|String|Number|Date|Array, String);
-    
 // hourCol.addClass("col-2")
     // saveCol.addClass("col-2");
     // eventCol.addClass("col-8");
